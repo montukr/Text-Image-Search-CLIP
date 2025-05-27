@@ -138,6 +138,8 @@ venv.bak/
 myenv/
 Images_Raw/
 image_vecs_db/
+.DS_Store
+
 
 # Spyder project settings
 .spyderproject
