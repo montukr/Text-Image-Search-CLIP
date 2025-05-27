@@ -139,6 +139,7 @@ myenv/
 Images_Raw/
 image_vecs_db/
 .DS_Store
+utils/.DS_Store
 
 
 # Spyder project settings
