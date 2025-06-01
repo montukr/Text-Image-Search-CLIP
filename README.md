@@ -38,3 +38,7 @@ Streamlit ◄──► OpenAI CLIP ◄──► MongoDB + GridFS
 **MongoDB Issues**: Check if MongoDB is running with `mongosh --eval "db.adminCommand('ping')"`
 
 **Memory Issues**: Ensure 4GB+ RAM available
+
+## Contact
+
+- **LinkedIn: https://www.linkedin.com/in/montukr/
