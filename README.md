@@ -1,4 +1,4 @@
-# 🔍 AI-Powered Image Search Platform
+# 🔍 AI-Powered Semantic Image Search Platform
 
 Search images using natural language with OpenAI's CLIP model. Upload images and find them with queries like "dog playing in park" or "sunset over mountains".
 
