@@ -41,4 +41,4 @@ Streamlit ◄──► OpenAI CLIP ◄──► MongoDB + GridFS
 
 ## Contact
 
-- **LinkedIn: https://www.linkedin.com/in/montukr/
+- **LinkedIn**: https://www.linkedin.com/in/montukr/
