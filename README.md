@@ -1,46 +1,147 @@
 # 🔍 AI-Powered Semantic Image Search Platform
 
-Developed a web image search platform using OpenAI CLIP for semantic matching. Users upload images and search with natural language. Built with Streamlit, MongoDB GridFS, and ChromaDB for fast retrieval.
+An intelligent image search platform that enables users to search images using **natural language queries** or **image inputs**.
+Built using **OpenAI CLIP**, this system understands the semantic meaning of images for accurate and fast retrieval.
 
-Search images using natural language with OpenAI's CLIP model. Upload images and find them with queries like "dog playing in park" or "sunset over mountains".
+---
 
-![Python](https://img.shields.io/badge/python-v3.8+-blue.svg) ![Streamlit](https://img.shields.io/badge/streamlit-v1.28+-red.svg) ![MongoDB](https://img.shields.io/badge/mongodb-v6.0+-green.svg)
+![Python](https://img.shields.io/badge/python-v3.10+-blue.svg)
+![Streamlit](https://img.shields.io/badge/streamlit-v1.0+-red.svg)
+![MongoDB](https://img.shields.io/badge/mongodb-v6.0+-green.svg)
 
-## Features
+---
 
-- **Semantic Search**: Find images with natural language
-- **Batch Upload**: Multiple image uploads with progress tracking
-- **Smart Thumbnails**: Auto-generated thumbnails and caching
-- **Gallery View**: Browse and manage all images
-- **Trash System**: Delete and restore images
+## 🚀 Features
 
+* 🔍 **Semantic Search** – Search images using natural language (e.g., *"dog playing in park"*)
+* 🖼️ **Image-to-Image Search** – Find visually similar images
+* 📦 **Image Storage** – Stored efficiently using MongoDB GridFS
+* ⚡ **Fast Retrieval** – Vector similarity search using ChromaDB
+* 🧠 **CLIP Embeddings** – Semantic understanding of images
+* 🗑️ **Trash System** – Delete and restore images
+* 🖼️ **Gallery View** – Browse and manage uploaded images
 
-## Usage
+---
 
-1. **Upload**: Drop images in the sidebar uploader
-2. **Search**: Type natural language queries 
-3. **Manage**: View gallery, delete, or restore images
-
-## Architecture
+## 🏗️ Architecture
 
 ```
-Streamlit ◄──► OpenAI CLIP ◄──► MongoDB + GridFS
-    │              │                    │
-    └──────────► ChromaDB ◄─────────────┘
+Streamlit UI  ◄──►  CLIP Model  ◄──►  MongoDB (GridFS)
+     │                                 │
+     └──────────────► ChromaDB ◄────────┘
 ```
 
-## Configuration
+---
 
-- **Database**: `image_db`
-- **Supported Formats**: PNG, JPG, JPEG
+## 🏗️ Tech Stack
 
+* **Frontend**: Streamlit
+* **Backend**: Python
+* **Database**: MongoDB (GridFS)
+* **Vector Database**: ChromaDB
+* **ML Model**: OpenCLIP (CLIP-based embeddings)
+* **Libraries**: PyTorch, Pillow, NumPy
 
-## Troubleshooting
+---
 
-**MongoDB Issues**: Check if MongoDB is running with `mongosh --eval "db.adminCommand('ping')"`
+## 📁 Project Structure
 
-**Memory Issues**: Ensure 4GB+ RAM available
+```
+Text-Image-Search-CLIP/
+├── main.py                # Embedding & indexing logic
+├── front_end.py          # Streamlit UI
+├── utils/                # MongoDB utilities
+├── Images_Raw/           # Input images
+├── image_vecs_db/        # Vector database
+├── requirements.txt
+└── README.md
+```
 
-## Contact
+---
 
-- **LinkedIn**: https://www.linkedin.com/in/montukr/
+## ⚙️ Installation
+
+1. Clone the repository:
+
+```
+git clone <repo-url>
+cd Text-Image-Search-CLIP
+```
+
+2. Create a virtual environment:
+
+```
+python3.10 -m venv myenv
+source myenv/bin/activate
+```
+
+3. Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Running the Project
+
+### 1. Run backend (embedding & indexing)
+
+```
+python main.py
+```
+
+### 2. Run frontend (Streamlit app)
+
+```
+streamlit run front_end.py
+```
+
+Open in browser:
+
+```
+http://localhost:8501
+```
+
+---
+
+## 🧪 Usage
+
+1. **Upload Images** – Add images through the interface
+2. **Search** – Enter natural language queries
+3. **Explore** – View, delete, or restore images
+
+---
+
+## ⚙️ Configuration
+
+* **Database Name**: `image_db`
+* **Supported Formats**: PNG, JPG, JPEG
+
+---
+
+## ⚠️ Notes
+
+* Use **Python 3.10 or 3.11** (recommended)
+* Ensure MongoDB is running
+* First run may take time (embedding process)
+
+---
+
+## 🛠️ Troubleshooting
+
+* **MongoDB not working**
+
+  ```
+  mongosh --eval "db.adminCommand('ping')"
+  ```
+
+* **Streamlit not opening**
+
+  ```
+  streamlit run front_end.py
+  ```
+
+* **Memory issues**
+  Ensure at least **4GB RAM** available
+
