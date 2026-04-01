@@ -39,14 +39,27 @@ def remove_image_vector(fid: str) -> bool:
         print(f"Error removing vector for {fid}: {e}")
         return False
 
-def embed_all_from_mongo() -> None:
+def query_images(query: str, n_results: int = 10) -> list[str]:
+    """Query ChromaDB using text and return list of matched filenames."""
+    res = collection.query(query_texts=[query], n_results=n_results)
+    if res and "ids" in res and res["ids"]:
+        return res["ids"][0]
+    return []
+
+def embed_all_from_mongo(progress_callback=None) -> None:
     """Index anything in MongoDB that isn't in Chroma yet."""
-    for fid in all_filenames():
+    filenames = list(all_filenames())
+    total = len(filenames)
+    
+    for i, fid in enumerate(filenames, start=1):
         existing = collection.get(ids=[fid])
         if not existing['ids']:  # If not found in collection
             img = load_image(fid)
             if img is not None:
                 embed_image(fid, img)
+                
+        if progress_callback:
+            progress_callback(i, total, fid)
 
 def cleanup_orphaned_vectors() -> int:
     """Remove vectors from ChromaDB that no longer have corresponding images in MongoDB."""
