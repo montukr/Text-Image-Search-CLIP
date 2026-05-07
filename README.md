@@ -145,3 +145,6 @@ http://localhost:8501
 * **Memory issues**
   Ensure at least **4GB RAM** available
 
+
+  ------------------------------------------------------------------------
+
